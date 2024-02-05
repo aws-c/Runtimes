@@ -4,9 +4,15 @@ function openMainDownload() {
 
 function openDownloadUrl(id) {
     const downloadUrlElement = document.getElementById(id);
-    const downloadUrl = downloadUrlElement.innerText;
-    window.open(downloadUrl, '_blank');
+    const downloadUrl = downloadUrlElement.innerText.trim();
+
+    if (downloadUrl.startsWith('https://') || downloadUrl.startsWith('https://')) {
+        window.open(downloadUrl, '_blank');
+    } else {
+        window.open('https://' + downloadUrl, '_blank');
+    }
 }
+
 
 function copyDownloadLink(id) {
     const downloadUrlElement = document.getElementById(id);
@@ -20,3 +26,4 @@ function copyDownloadLink(id) {
             console.error("Failed to copy: ", error);
         });
 }
+
