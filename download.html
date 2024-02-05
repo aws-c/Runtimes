@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Page</title>
+    <link rel="stylesheet" href="downloadstyles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="download-section">
+                <h2>DirectX End-User</h2>
+                <div class="download-box">
+                    <div class="download-url-box">
+                        <span class="download-url" id="directx-download-url">link.gamedrive.org/DirectX-DL</span>
+                    </div>
+                    <button class="main-download-button" onclick="openDownloadUrl('directx-download-url')">Download</button>
+                    <button class="copy-download-link" onclick="copyDownloadLink('directx-download-url')">Copy Download Link</button>
+                </div>
+            </div>
+            <div class="download-section">
+                <h2>Visual C++</h2>
+                <div class="download-box">
+                    <div class="download-url-box">
+                        <span class="download-url" id="visualC-download-url">link.gamedrive.org/VisualC</span>
+                    </div>
+                    <button class="main-download-button" onclick="openDownloadUrl('directx-download-url')">Download</button>
+                    <button class="copy-download-link" onclick="copyDownloadLink('visualC-download-url')">Copy Download Link</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyDownloadLink(id) {
+            const downloadUrlElement = document.getElementById(id);
+            const downloadUrl = downloadUrlElement.innerText;
+
+            navigator.clipboard.writeText(downloadUrl)
+                .then(() => {
+                    alert("Download link copied to clipboard!");
+                })
+                .catch((error) => {
+                    console.error("Failed to copy: ", error);
+                });
+        }
+    </script>
+</body>
+</html>
